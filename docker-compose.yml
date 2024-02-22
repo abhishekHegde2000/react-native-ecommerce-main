@@ -1,0 +1,19 @@
+version: "3"
+services:
+  server:
+    build: ./express-server
+    ports:
+      - 8080:8080
+    volumes:
+      - ./express-server:/usr/src/app
+    environment:
+      - NODE_ENV=development
+  app:
+    build: ./myShop-app
+    ports:
+      - 19000:19000
+      - 19001:19001
+    volumes:
+      - ./myShop-app:/usr/src/app
+    environment:
+      - NODE_ENV=development
